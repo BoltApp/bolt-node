@@ -1,0 +1,26 @@
+{
+  "name": "boltpay",
+  "version": "0.1.0",
+  "description": "Library to interact with Bolt checkout APIs",
+  "keywords": [
+    "Bolt",
+    "credit cards",
+    "checkout",
+    "payment",
+    "api"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoltApp/bolt-node.git"
+  },
+  "author": "Bolt <support@bolt.com> (https://bolt.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BoltApp/bolt-node/issues"
+  },
+  "homepage": "https://github.com/BoltApp/bolt-node"
+}
