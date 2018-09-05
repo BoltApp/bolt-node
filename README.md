@@ -33,3 +33,12 @@ var orderToken = boltClient.createOrder({
   }
 });
 ```
+
+### Verify signature
+
+```
+var boltClient = require('boltpay')({
+    signingSecret: 'SIGNING_SECRET',
+});
+var verified = boltClient.verifySignature(body, hmac);
+```
