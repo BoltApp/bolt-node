@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Library to interact with Bolt checkout APIs",
   "main": "dist/index.js",
-  "types" : "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "keywords": [
     "Bolt",
     "credit cards",
@@ -27,5 +27,11 @@
   "homepage": "https://github.com/BoltApp/bolt-node",
   "devDependencies": {
     "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "@types/request": "^2.47.1",
+    "@types/request-promise-native": "^1.0.15",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   }
 }
