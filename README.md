@@ -9,7 +9,7 @@ var boltClient = require('boltpay')({
     apiKey: 'API_KEY',
     environment: 'sandbox'
 });
-var orderToken = boltClient.createOrder({
+boltClient.createOrder({
   "cart": {
     "order_reference": "12345",
     "currency": "USD",
@@ -31,6 +31,10 @@ var orderToken = boltClient.createOrder({
       "description: "Code: 20OFF"
     }]
   }
+}).then(function(response) {
+  // handle response
+}).catch(function(err) {
+  // handle error
 });
 ```
 
