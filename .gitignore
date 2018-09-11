@@ -1,2 +1,4 @@
-dist
+dist-temp
 node_modules
+.DS_Store
+npm-debug*

@@ -12,8 +12,32 @@
     "api"
   ],
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:declarations": "npx tsc",
+    "build:library": "npm run build:declarations && npm run build:prod",
+    "build:prod": "webpack --env.NODE_ENV=prod",
+    "dev": "webpack --env.NODE_ENV=dev --watch",
+    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.ts": [
+        "tslint",
+        "prettier --write",
+        "git add"
+      ],
+      "*.json": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "dist/**.*"
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,11 +50,25 @@
   },
   "homepage": "https://github.com/BoltApp/bolt-node",
   "devDependencies": {
-    "typescript": "^3.0.3"
-  },
-  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
+    "@types/node": "^10.9.4",
     "@types/request": "^2.47.1",
     "@types/request-promise-native": "^1.0.15",
+    "@types/webpack": "^4.4.11",
+    "babel-loader": "^8.0.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
   }
