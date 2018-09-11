@@ -9,7 +9,6 @@ const testItem: Bolt.IItem = {
   unit_price: 10,
 };
 
-module.exports = {
+export default {
   addTen,
-  ten,
 };

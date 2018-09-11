@@ -164,7 +164,6 @@
     "interface-over-type-literal": true, // Prefer interface over type
     "jsdoc-format": true, // JSDoc comments all the things !
     "match-default-export-name": true, // Enforce naming convention
-    "newline-per-chained-call": true, // Each element in the chain must have its own line
     "new-parens": true, // Requires parentheses when invoking a constructor via the new keyword.
     "no-angle-bracket-type-assertion": true, // Requires the use of as Type for type assertions instead of <Type>.
     "no-boolean-literal-compare": true, // Warns on comparison to a boolean literal, as in x === true.

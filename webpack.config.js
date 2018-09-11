@@ -9,7 +9,7 @@ module.exports = env => {
       auxiliaryComment: 'SDK to use the Bolt API with Node.',
       filename: 'index.js',
       library: 'Bolt',
-      libraryTarget: 'commonjs',
+      libraryTarget: 'commonjs2',
       path: `${__dirname}${isDev ? '/dist_temp' : '/dist'}`,
     },
     resolve: { extensions: ['.ts'] },
