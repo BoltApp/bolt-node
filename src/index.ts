@@ -1,14 +1,9 @@
-const ten: number = 10;
+import boltInit from './methods/boltInit';
 
-const addTen: (x: number) => number = (x: number): number => ten + x;
-
-const testItem: Bolt.IItem = {
-  description: 'a',
-  quantity: 1,
-  total_amount: 10,
-  unit_price: 10,
+const bolt: Bolt.IBolt = {
+  apiKey: 'string',
+  baseUrl: 'string',
+  init: params => boltInit(bolt, params),
 };
 
-export default {
-  addTen,
-};
+export default bolt;

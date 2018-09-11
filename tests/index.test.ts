@@ -1,7 +1,10 @@
 import Bolt from '../dist_temp/index.js';
 
-Bolt.addTen(10);
+Bolt.init({
+  apiKey: 'a',
+  baseUrl: 'b',
+});
 
 test('Must success', () => {
-  expect(Bolt.addTen(10)).toBe(20);
+  expect(20).toBe(20);
 });

@@ -17,7 +17,7 @@
     "build:prod": "webpack --env.NODE_ENV=prod",
     "dev": "webpack --env.NODE_ENV=dev --watch",
     "precommit": "lint-staged",
-    "test": "jest --watch"
+    "test": "jest --watch --runInBand"
   },
   "husky": {
     "hooks": {
