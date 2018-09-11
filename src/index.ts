@@ -1,8 +1,8 @@
-const a: number = 10;
+const ten: number = 10;
 
-const b: (x: number) => number = (x: number): number => a + x;
+const addTen: (x: number) => number = (x: number): number => ten + x;
 
 module.exports = {
-  a,
-  b,
+  addTen,
+  ten,
 };

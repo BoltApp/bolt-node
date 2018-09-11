@@ -6,15 +6,19 @@ module.exports = env => {
     devtool: 'inline-source-map',
     entry: './src/index.ts',
     output: {
-      path: `${__dirname}${isDev ? '/dist-temp' : '/dist'}`,
+      auxiliaryComment: 'SDK to use the Bolt API with Node.',
       filename: 'index.js',
+      library: 'Bolt',
+      libraryTarget: 'commonjs',
+      path: `${__dirname}${isDev ? '/dist-temp' : '/dist'}`,
     },
-    resolve: { extensions: ['.ts', '.tsx'] },
+    resolve: { extensions: ['.ts'] },
     module: {
       rules: [
         {
           test: /\.(tsx?)$/i,
           include: __dirname + '/src',
+          exclude: /node_modules|dev/,
           use: {
             loader: 'babel-loader',
             options: {
