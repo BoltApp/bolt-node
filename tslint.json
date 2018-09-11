@@ -1,0 +1,218 @@
+{
+  "linterOptions": {
+    "exclude": ["dist"]
+  },
+  "rules": {
+    "adjacent-overload-signatures": true, // Forces you to have your overload methods to follow each other.
+    "ban-types": [
+      true,
+      ["String", "Use 'string' instead."],
+      ["Boolean", "Use 'boolean' instead."],
+      ["Number", "Use 'number' instead."],
+      ["Object", "Be more specific"],
+      ["Function", "Be more specific"]
+    ], // To standardize our exports.
+    "member-access": [
+      true,
+      ["check-accessor", "check-constructor", "check-parameter-property"]
+    ], // Always define if a member is publis, private or protected.
+    "member-ordering": [
+      true,
+      [
+        // Static fields
+        "protected-static-field",
+        "private-static-field",
+        "public-static-field",
+        // Instance fields
+        "protected-instance-field",
+        "private-instance-field",
+        "public-instance-field",
+        // Constructors
+        "protected-constructor",
+        "private-constructor",
+        "public-constructor",
+        // Static methods
+        "protected-static-method",
+        "private-static-method",
+        "public-static-method",
+        // Instance methods
+        "protected-instance-method",
+        "private-instance-method",
+        "public-instance-method"
+      ]
+    ], // To standardize our declarations.
+    "no-any": true, // Never use the "any" type.
+    "no-empty-interface": false, // We can have {} interface for dev purpose.
+    "no-import-side-effect": false, // To be able to import pcss.
+    "no-inferrable-types": false, // Type all the things!
+    "no-namespace": [true, "allow-declarations"], // No module and namespace in the declaration.
+    "no-non-null-assertion": true, // Disallows non-null assertions using the "!." postfix operator.
+    "no-parameter-reassignment": true, // Parametters should not be reassigned in methods.
+    "no-reference": true, // Don't import with <reference path=>.
+    "no-var-requires": false, // You can use require when necessary.
+    "only-arrow-functions": false, // Classic functions are still cool.
+    "prefer-for-of": true, // Use ‘for-of’ if the index is only used to access the array being iterated.
+    "promise-function-async": true, // Requires any function or method that returns a promise to be marked async.
+    "typedef": true, // Type all the things!
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      },
+      {
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
+      }
+    ], // Type with no space before and one space after the semi colon "const a: number = 0"
+    "unified-signatures": true, // Try to use union type when a signature overloads another
+    "await-promise": true, // Warns for an awaited value that is not a Promise.
+    "ban-comma-operator": true, // This was one of the ugly parts
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator
+    "curly": [true, "ignore-same-line"], // Always curly except for the same line
+    "forin": true, // Requires a for ... in statement to be filtered with an if statement.
+    // for (let key in someObject) {
+    //     if (someObject.hasOwnProperty(key)) {
+    //         // code here
+    //     }
+    // }
+    // => Avoid bugs
+    "label-position": true, // Disallow label outside do/for/while/switch statements. This was one of the ugly parts
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/label
+    "no-arg": true, // No arguments.callee. This was one of the ugly parts
+    "no-bitwise": false, // We may want to use
+    "no-conditional-assignment": true, // Disallow "if (var1 = var2)", this is probably a typo
+    "no-console": [true, "log"], // No console.log, but .error and other are allowed
+    "no-construct": true, // No "new Numer()", see https://stackoverflow.com/questions/4719320/new-number-vs-number
+    "no-debugger": true, // Bad for production
+    "no-duplicate-super": true, // super() only once per constructor
+    "no-duplicate-switch-case": true, // Warn when twice the same case in a switch statement
+    "no-duplicate-variable": true, // vars can be declared only once per scope
+    "no-dynamic-delete": true, // Don't use "delete" on onject property, this is bad for performances
+    "no-empty": [true, "allow-empty-catch"], // no emptuy block ; except for the "catch(error){}"
+    "no-eval": true, // You know that one
+    "no-floating-promises": true, // always handle return for promises
+    "no-for-in-array": true, // for in is bad on an array, use for of
+    "no-implicit-dependencies": false, // if there is a dependency, it must be declared in the package.json file
+    "no-inferred-empty-object-type": true, // Disallow type inference of {} (empty object type) at function and constructor call sites
+    "no-invalid-template-strings": true, // Look for ${} in strings and warns
+    "no-invalid-this": true, // No this outside of a class body. See https://github.com/palantir/tslint/pull/1105#issue-147549402
+    "no-misused-new": true, // No "new" for class or constructor for interfaces
+    "no-object-literal-type-assertion": true, // No var foo = {} as { bar: number }, you are trying to fool the linter!
+    "no-return-await": true, // async must return the promise, not an await statement
+    "no-shadowed-variable": true, // see : https://en.wikipedia.org/wiki/Variable_shadowing
+    // helps to avoid the TDZ, see http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified
+    "no-sparse-arrays": true, // no [1,,2,3] ; this is probably a typo anyway
+    "no-string-literal": false, // We allow the weird for['bar-baz'], even if this may be ugly
+    "no-string-throw": true, // Throw errors, and not simple strings
+    "no-submodule-imports": false, // We use a lot of submodules
+    "no-switch-case-fall-through": false, // Allow case: 1 case:2...
+    "no-this-assignment": [
+      true,
+      {
+        "allowed-names": ["^self$"],
+        "allow-destructuring": true
+      }
+    ], // Don't let foo = this ; expect specific case ; use self
+    "no-unbound-method": [true, "ignore-static"], // Warn when you try to this in a class method that is not delcared as an arrow function
+    "no-unnecessary-class": true, // Warn when class is not necessary
+    "no-unsafe-finally": true, // Disallows control flow statements, such as return, continue, break and throws in finally blocks.
+    "no-unused-expression": true, // Disallows unused expression statements.
+    "no-unused-variable": true, // Disallows unused imports, variables, functions and private class members.
+    "no-use-before-declare": false, // We often need to do this in a class
+    "no-var-keyword": true, // Use let or const only
+    "no-void-expression": true, // When a function returns void, don't use it as an expression
+    "prefer-conditional-expression": true, // Recommends to use a conditional expression instead of assigning to the same thing in each branch of an if statement.
+    "prefer-object-spread": true, // {...values} instead of Object.assign => help with type inference
+    "radix": true, // Don't parseInt without radix (usually 10)
+    "restrict-plus-operands": true, // Type checking for additions, operands must have the same type
+    "strict-boolean-expressions": true, // Only boolean are accepted in boolean expressions, cast them with "Boolean()" when needed
+    "strict-type-predicates": true, // Warns when predicate is always true or always false
+    "switch-default": true, // Require a default case in all switch statements.
+    "triple-equals": true, // Never loosely compare
+    "use-isnan": true, // Enforces use of the isNaN()
+    "deprecation": true, // Warn in case of documented deprecation
+    "eofline": true, // Files must end with a ne line
+    "indent": [true, "spaces", 2], // Enforce indentation
+    "linebreak-style": [true, "LF"], // Enforce line breaks
+    "no-default-export": false, // We use export default all the time
+    "no-duplicate-imports": true, // Check that modules are imported only once
+    "no-require-imports": false, // We need to require sometimes
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ], // Enforce trailing comma everywhre
+    "object-literal-sort-keys": true, // Sort properties in object litteral ; will avoid conflicts
+    "prefer-const": true, // Will enforce const when the variable never changes
+    "align": [true, "elements", "members", "parameters", "statements"], // Align all the things in the code
+    "array-type": [true, "generic"], // Force Array<string> declarations
+    "arrow-parens": false, // Can omit parenthesis around params for arrow function
+    "arrow-return-shorthand": true, // Suggests to convert () => { return x; } to () => x.
+    "class-name": true, // Enforces PascalCased class and interface names.
+    "completed-docs": true, // JSDoc comments all the things !
+    "import-spacing": true, // Enforce space between key words
+    "interface-name": [true, "always-prefix"], // Interface names starts with a I
+    "interface-over-type-literal": true, // Prefer interface over type
+    "jsdoc-format": true, // JSDoc comments all the things !
+    "match-default-export-name": true, // Enforce naming convention
+    "new-parens": true, // Requires parentheses when invoking a constructor via the new keyword.
+    "no-angle-bracket-type-assertion": true, // Requires the use of as Type for type assertions instead of <Type>.
+    "no-boolean-literal-compare": true, // Warns on comparison to a boolean literal, as in x === true.
+    "no-consecutive-blank-lines": true, // no more than 1 consecutive blank line
+    "no-irregular-whitespace": true, // Disallow irregular whitespace within a file, including strings and comments.
+    "no-parameter-properties": true, // Disallows parameter properties in class constructors.
+    "no-reference-import": true, // Don’t <reference types="foo" /> if you import foo anyway.
+    "no-trailing-whitespace": true, // No end of line whitespaces
+    "no-unnecessary-callback-wrapper": true, // Replaces x => f(x) with just f.
+    "no-unnecessary-initializer": true, // Forbids a ‘var’/’let’ statement or destructuring initializer to be initialized to ‘undefined’.
+    "no-unnecessary-qualifier": true, // Warns when a namespace qualifier (A.x) is unnecessary.
+    "number-literal-format": true, // Checks that decimal literals should begin with ‘0.’ instead of just ‘.’, and should not end with a trailing ‘0’.
+    "object-literal-key-quotes": [true, "as-needed"], // Only property names which require quotes may be quoted (e.g. those with spaces in them).
+    "one-line": [true], // Requires the specified tokens to be on the same line as the expression preceding them.
+    "one-variable-per-declaration": true, // no var a, b, c, d...
+    "ordered-imports": false, // Config is awful for that
+    "prefer-method-signature": false, // Prefer foo: () => void over foo(): void  in interfaces and types.
+    "prefer-switch": [
+      true,
+      {
+        "min-cases": 2
+      }
+    ], // Prefer a switch statement to an if statement with simple === comparisons.
+    "prefer-template": true, // Prefer a template expression over string literal concatenation.
+    "prefer-while": true, // Prefer while loops instead of for loops without an initializer and incrementor.
+    "quotemark": [true, "single", "jsx-double"], // String single quotes and jsx double quotes
+    "return-undefined": true, // Prefer return; in void functions and return undefined; in value-returning functions.
+    "space-before-function-paren": [false, "always"], // Require a space before function parenthesis
+    "space-within-parens": true, // Enforces spaces within parentheses,
+    "switch-final-break": [true, "always"], // Checks whether the final clause of a switch statement ends in break;.
+    "type-literal-delimiter": true, // Checks that type literal members are separated by semicolons. Enforces a trailing semicolon for multiline type literals.
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ], // Checks variable names for various errors.
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ] // Enforces whitespace style conventions.
+  }
+}
