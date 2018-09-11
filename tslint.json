@@ -45,7 +45,7 @@
     "no-empty-interface": false, // We can have {} interface for dev purpose.
     "no-import-side-effect": false, // To be able to import pcss.
     "no-inferrable-types": false, // Type all the things!
-    "no-namespace": [true], // No module and namespace in the declaration.
+    "no-namespace": [true, "allow-declarations"], // No module and namespace in the declaration.
     "no-non-null-assertion": true, // Disallows non-null assertions using the "!." postfix operator.
     "no-parameter-reassignment": true, // Parametters should not be reassigned in methods.
     "no-reference": true, // Don't import with <reference path=>.

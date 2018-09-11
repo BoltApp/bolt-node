@@ -10,7 +10,7 @@ module.exports = env => {
       filename: 'index.js',
       library: 'Bolt',
       libraryTarget: 'commonjs',
-      path: `${__dirname}${isDev ? '/dist-temp' : '/dist'}`,
+      path: `${__dirname}${isDev ? '/dist_temp' : '/dist'}`,
     },
     resolve: { extensions: ['.ts'] },
     module: {

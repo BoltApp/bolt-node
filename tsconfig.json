@@ -1,27 +1,50 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true /* To import without "* as" */,
+    /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "allowSyntheticDefaultImports": true,
+    /* Force the strict mode */
     "alwaysStrict": true,
+    /* Generates corresponding '.d.ts' file. */
     "declaration": true,
+    /* Add sourcemaps for declarations */
     "declarationMap": true,
-    "esModuleInterop": true,
-    "emitDeclarationOnly": true /* Most important thing: babel will handle the actual file generation */,
-    "lib": ["es5", "es6", "dom"],
-    "module": "commonjs",
+    /* Most important thing: babel will handle the actual file generation */
+    "emitDeclarationOnly": true,
+    /* Specify library files to be included in the compilation:  */
+    "lib": ["esnext", "es5", "es6"],
+    /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "module": "ESNext",
     "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
-    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
-    "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
-    "noUnusedLocals": true /* Report errors on unused locals. */,
-    "noUnusedParameters": true /* Report errors on unused parameters. */,
+    /* Do not emit outputs. Babel will emeit and typescript will do the tooling */
+    "noEmit": false,
+    /* Report errors for fallthrough cases in switch statement. */
+    "noFallthroughCasesInSwitch": true,
+    /* Report error when not all code paths in function return a value. */
+    "noImplicitReturns": true,
+    /* Raise error on 'this' expressions with an implied 'any' type. */
+    "noImplicitThis": true,
+    /* Report errors on unused locals. */
+    "noUnusedLocals": true,
+    /* Report errors on unused parameters. */
+    "noUnusedParameters": true,
+    /* Where the declarations will be written */
     "outDir": "dist",
     "skipDefaultLibCheck": true,
+    /* Our custom folder for types */
+    "typeRoots": ["bolt_types", "node_modules/@types"],
+    /* Because we build a library */
     "skipLibCheck": true,
+    /* Generates corresponding '.map' file. */
+    "sourceMap": true,
+    /* You don't want to be loose! */
     "strict": true,
-    "strictFunctionTypes": true /* Enable strict checking of function types. */,
-    "strictNullChecks": true /* You have to add "| null" in your type when needed */,
-    "target": "es5"
+    /* Enable strict checking of function types. */
+    "strictFunctionTypes": true,
+    /* Enable strict null checks. You have to add "| null" in your type when needed. */
+    "strictNullChecks": true,
+    /* 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "target": "ESNEXT"
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "bolt_types"],
   "exclude": ["./node_modules/**/*", "./lib/**/*"]
 }
