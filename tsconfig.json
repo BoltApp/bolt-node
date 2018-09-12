@@ -4,6 +4,8 @@
     "allowSyntheticDefaultImports": true,
     /* Force the strict mode */
     "alwaysStrict": true,
+    /* For absolute imports */
+    "baseUrl": "",
     /* Generates corresponding '.d.ts' file. */
     "declaration": true,
     /* Add sourcemaps for declarations */

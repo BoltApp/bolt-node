@@ -2,6 +2,8 @@ declare namespace Bolt {
   export interface IBolt {
     readonly apiKey?: string;
     readonly baseUrl?: string;
-    public readonly init: () => void;
+    readonly environment?: string;
+    public readonly init: (params: Bolt.IBoltInitParams) => void;
+    readonly isInitialized?: boolean;
   }
 }

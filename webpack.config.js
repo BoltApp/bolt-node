@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = env => {
   const isDev = Boolean(env.NODE_ENV === 'dev');
 
@@ -12,7 +14,12 @@ module.exports = env => {
       libraryTarget: 'commonjs2',
       path: `${__dirname}${isDev ? '/dist_temp' : '/dist'}`,
     },
-    resolve: { extensions: ['.ts'] },
+    resolve: {
+      extensions: ['.ts'],
+      alias: {
+        '': path.resolve(__dirname, '/'),
+      },
+    },
     module: {
       rules: [
         {

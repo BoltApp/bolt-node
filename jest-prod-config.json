@@ -1,0 +1,13 @@
+{
+  "roots": ["tests/"],
+  "collectCoverage": false,
+  "collectCoverageFrom": ["src/**/*.ts", "!**/node_modules/**"],
+  "transform": {
+    "^.+\\.ts$": "ts-jest"
+  },
+  "testRegex": ".test.ts$",
+  "moduleFileExtensions": ["ts", "js"],
+  "globals": {},
+  "verbose": true,
+  "moduleDirectories": ["node_modules", "src", "tests"]
+}
