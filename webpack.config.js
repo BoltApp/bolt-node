@@ -7,6 +7,7 @@ module.exports = env => {
     mode: isDev ? 'development' : 'production',
     devtool: 'inline-source-map',
     entry: './src/index.ts',
+    target: 'node',
     output: {
       auxiliaryComment: 'SDK to use the Bolt API with Node.',
       filename: 'index.js',
@@ -15,10 +16,9 @@ module.exports = env => {
       path: `${__dirname}${isDev ? '/dist_temp' : '/dist'}`,
     },
     resolve: {
-      extensions: ['.ts'],
-      alias: {
-        '': path.resolve(__dirname, '/'),
-      },
+      extensions: ['.ts', '.json', '.js'],
+      alias: { src: path.resolve(__dirname, 'src/') },
+      modules: ['node_modules'],
     },
     module: {
       rules: [

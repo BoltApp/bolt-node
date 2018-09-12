@@ -16,16 +16,18 @@ describe('Test the initialization function', () => {
   /**
    * Init the SDK once for all tests
    */
-  Bolt.init({
-    apiKey: '1234',
-  });
+  const targetAPIKey: string = global.Secrets.apiKey;
+  const targetEnvironment: string = global.IS_DEV ? 'sandbox' : 'production';
+  Bolt.init({ apiKey: targetAPIKey, environment: targetEnvironment });
 
   /**
    * Check the values after init
    */
   test('Check initialization values.', () => {
-    expect(Bolt.apiKey).toBe('1234');
-    expect(Bolt.environment).toBe('sandbox');
+    expect(Bolt.apiKey).toBe(targetAPIKey);
+    expect(Bolt.environment).toBe(targetEnvironment);
+    expect(typeof Bolt.baseURL).toStrictEqual('string');
+    expect(Bolt.isInitialized).toStrictEqual(true);
   });
 
   /**
@@ -60,7 +62,7 @@ describe('Test the initialization function', () => {
     };
     expect(tryRedefineProp4).toThrow(TypeError);
 
-    expect(Bolt.apiKey).toBe('1234');
-    expect(Bolt.environment).toBe('sandbox');
+    expect(Bolt.apiKey).toBe(targetAPIKey);
+    expect(Bolt.environment).toBe(targetEnvironment);
   });
 });

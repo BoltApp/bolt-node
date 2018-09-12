@@ -1,6 +1,7 @@
 import values from 'src/configuration';
 
 /**
+ * Initialize Bolt node SDK
  *
  * @param bolt
  * @param params
