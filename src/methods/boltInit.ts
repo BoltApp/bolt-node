@@ -10,6 +10,8 @@ const init = (
   bolt: Bolt.IBolt,
   params: Bolt.IBoltInitParams,
   environment: string = (params || {}).environment || 'sandbox',
+  version: string = 'v1',
+  apiKey: string = (params || {}).apiKey,
 ): void => {
   /**
    * If the API has already been initialized, stops here.
@@ -17,8 +19,6 @@ const init = (
   if (bolt.isInitialized) {
     throw new Error('Bolt has already been initialized.');
   }
-
-  const { apiKey } = params;
 
   /**
    * Force check the apiKey param
@@ -32,20 +32,24 @@ const init = (
       ...freezedPropertiesParametters,
       value: apiKey,
     },
-    baseURL: {
+    environment: {
+      ...freezedPropertiesParametters,
+      value: environment,
+    },
+    hostname: {
       ...freezedPropertiesParametters,
       value:
         environment === 'sandbox'
           ? values.SANDBOX_BASE_URL
           : values.PRODUCTION_BASE_URL,
     },
-    environment: {
-      ...freezedPropertiesParametters,
-      value: environment,
-    },
     isInitialized: {
       ...freezedPropertiesParametters,
       value: true,
+    },
+    version: {
+      ...freezedPropertiesParametters,
+      value: version,
     },
   });
 };

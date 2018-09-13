@@ -26,7 +26,8 @@ describe('Test the initialization function', () => {
   test('Check initialization values.', () => {
     expect(Bolt.apiKey).toBe(targetAPIKey);
     expect(Bolt.environment).toBe(targetEnvironment);
-    expect(typeof Bolt.baseURL).toStrictEqual('string');
+    expect(typeof Bolt.hostname).toStrictEqual('string');
+    expect(typeof Bolt.version).toStrictEqual('string');
     expect(Bolt.isInitialized).toStrictEqual(true);
   });
 

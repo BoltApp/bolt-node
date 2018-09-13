@@ -17,7 +17,7 @@
     "build:prod": "webpack --env.NODE_ENV=prod",
     "dev": "webpack --env.NODE_ENV=dev --watch",
     "precommit": "lint-staged",
-    "test:dev": "jest --watch --notify",
+    "test:dev": "jest --watchAll --notify",
     "test:prod": "jest --config=jest-prod-config.json"
   },
   "husky": {
