@@ -1,4 +1,6 @@
 dist_temp
 node_modules
 .DS_Store
+coverage
 npm-debug*
+secrets.js

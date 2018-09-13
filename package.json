@@ -17,7 +17,8 @@
     "build:prod": "webpack --env.NODE_ENV=prod",
     "dev": "webpack --env.NODE_ENV=dev --watch",
     "precommit": "lint-staged",
-    "test": "jest --watch"
+    "test:dev": "jest --watch --notify",
+    "test:prod": "jest --config=jest-prod-config.json"
   },
   "husky": {
     "hooks": {
@@ -41,17 +42,30 @@
     ]
   },
   "jest": {
+    "roots": [
+      "tests/"
+    ],
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!**/node_modules/**"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": ".test.ts$",
     "moduleFileExtensions": [
       "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
+      "js"
+    ],
+    "globals": {
+      "IS_DEV": true
+    },
+    "verbose": true,
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "tests"
     ]
   },
   "repository": {

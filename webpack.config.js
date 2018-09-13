@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = env => {
   const isDev = Boolean(env.NODE_ENV === 'dev');
 
@@ -5,6 +7,7 @@ module.exports = env => {
     mode: isDev ? 'development' : 'production',
     devtool: 'inline-source-map',
     entry: './src/index.ts',
+    target: 'node',
     output: {
       auxiliaryComment: 'SDK to use the Bolt API with Node.',
       filename: 'index.js',
@@ -12,7 +15,11 @@ module.exports = env => {
       libraryTarget: 'commonjs2',
       path: `${__dirname}${isDev ? '/dist_temp' : '/dist'}`,
     },
-    resolve: { extensions: ['.ts'] },
+    resolve: {
+      extensions: ['.ts', '.json', '.js'],
+      alias: { src: path.resolve(__dirname, 'src/') },
+      modules: ['node_modules'],
+    },
     module: {
       rules: [
         {

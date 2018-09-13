@@ -1,7 +1,19 @@
-import Bolt from '../dist_temp/index.js';
+/**
+ * Switch script origin depending on dev / prod env
+ */
+global.Bolt = global.IS_DEV
+  ? require('../dist_temp/index.js').default
+  : require('../dist/index.js').default;
 
-Bolt.addTen(10);
+/**
+ * Get secrets
+ */
+global.Secrets = global.IS_DEV
+  ? require('../secrets.js')
+  : require('../secrets.js');
 
-test('Must success', () => {
-  expect(Bolt.addTen(10)).toBe(20);
-});
+/**
+ * Run the test suites
+ */
+import './cases/initialization.ts';
+import './cases/createOrder.ts';

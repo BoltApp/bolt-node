@@ -1,14 +1,12 @@
-const ten: number = 10;
+import boltInit from 'src/methods/boltInit';
+import createOrder from 'src/methods/createOrder';
 
-const addTen: (x: number) => number = (x: number): number => ten + x;
-
-const testItem: Bolt.IItem = {
-  description: 'a',
-  quantity: 1,
-  total_amount: 10,
-  unit_price: 10,
+const bolt: Bolt.IBolt = {
+  apiKey: 'string',
+  baseUrl: 'string',
+  createOrder,
+  init: (params: Bolt.IBoltInitParams): void => boltInit(bolt, params),
+  isInitialized: false,
 };
 
-export default {
-  addTen,
-};
+export default bolt;

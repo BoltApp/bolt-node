@@ -46,3 +46,31 @@ var boltClient = require('boltpay')({
 });
 var verified = boltClient.verifySignature(body, hmac);
 ```
+
+## For SDK developpers
+
+### Get started with the code
+
+Clone the repo, `npm i` and then run two tasks:
+
+- `npm run dev` to compile the project while developing.
+- `npm run test:dev` to test on the fly while developping.
+
+You can `ndb npm run test:dev` to get a better debugger
+
+### Have the test running
+
+To run the tests, you will need a `secrets.js` file at the root of your folder:
+
+    /**
+    * Credentials to test the application in dev mode
+    *
+    * /!\ Must not be commited /!\
+    */
+    module.exports = {
+      apiKey: 'xxx',
+      signingSecret:'xxx',
+      publicKey:'xxx',
+    };
+
+Get the value for the credentials in you sandbox Bolt account: https://merchant-sandbox.bolt.com/settings
