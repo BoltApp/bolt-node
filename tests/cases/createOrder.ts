@@ -12,13 +12,13 @@ describe('Test the order creation', async () => {
   //   return expect(Bolt.createOrder(sampleOrderData)).resolves.toEqual('salut');
   // });
 
-  test('Asynchronous order creation', done => {
-    function callback(response) {
-      expect(response.statusCode).toStrictEqual(200);
-      done();
-    }
-    Bolt.createOrder(sampleOrderData, callback);
-  });
+  // test('Asynchronous order creation', done => {
+  //   function callback(response) {
+  //     expect(response.statusCode).toStrictEqual(200);
+  //     done();
+  //   }
+  //   Bolt.createOrder(sampleOrderData, callback);
+  // });
 });
 
 /**
