@@ -17,3 +17,4 @@ global.Secrets = global.IS_DEV
  */
 import './cases/initialization.ts';
 import './cases/createOrder.ts';
+import './cases/sign.ts';

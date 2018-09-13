@@ -66,7 +66,6 @@ const apiCall = (
    * Call without callback
    */
   return new Promise((resolve, reject) => {
-    console.time('sandbox API call');
     const req = https.request(options, originalResponse => {
       const response: Bolt.IAPIResponse = {
         body: '',
@@ -81,7 +80,6 @@ const apiCall = (
         try {
           response.body = JSON.parse(String(response.body));
         } catch {}
-        console.timeEnd('sandbox API call');
         resolve(response);
       });
     });
