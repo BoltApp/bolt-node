@@ -12,6 +12,7 @@ const init = (
   environment: string = (params || {}).environment || 'sandbox',
   version: string = 'v1',
   apiKey: string = (params || {}).apiKey,
+  hookURL: string | null = (params || {}).hookURL || null,
   publicKey: string = (params || {}).publicKey,
 ): void => {
   /**
@@ -43,6 +44,10 @@ const init = (
     environment: {
       ...freezedPropertiesParametters,
       value: environment,
+    },
+    hookURL: {
+      ...freezedPropertiesParametters,
+      value: hookURL,
     },
     hostname: {
       ...freezedPropertiesParametters,

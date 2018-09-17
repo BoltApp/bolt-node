@@ -24,7 +24,7 @@ const createTunnel = () =>
     console.log('error');
   });
 
-  console.log(tunnel);
+  console.log(tunnel.url);
 
   const server = http
     .createServer((req, res) => {

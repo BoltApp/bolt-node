@@ -1,11 +1,14 @@
 const Bolt = global.Bolt;
+const targetAPIKey: string = global.Secrets.apiKey;
+const targetPublicKey: string = global.Secrets.publicKey;
+const targetEnvironment: string = global.IS_DEV ? 'sandbox' : 'production';
 
-describe('Test the initialization function', () => {
+describe('Test the initialization function', async () => {
   /**
    * The SDK must throw errors when improper
    * parametters are passed on initialization
    */
-  test('Init with no apiKey or non string apiKey.', () => {
+  test('Init with no apiKey or non string apiKey.', async () => {
     const errorInitNoKey = () => Bolt.init({});
     expect(errorInitNoKey).toThrow(Error);
 
@@ -14,21 +17,9 @@ describe('Test the initialization function', () => {
   });
 
   /**
-   * Init the SDK once for all tests
-   */
-  const targetAPIKey: string = global.Secrets.apiKey;
-  const targetPublicKey: string = global.Secrets.publicKey;
-  const targetEnvironment: string = global.IS_DEV ? 'sandbox' : 'production';
-  Bolt.init({
-    apiKey: targetAPIKey,
-    environment: targetEnvironment,
-    publicKey: targetPublicKey,
-  });
-
-  /**
    * Check the values after init
    */
-  test('Check initialization values.', () => {
+  test('Check initialization values.', async () => {
     expect(Bolt.apiKey).toBe(targetAPIKey);
     expect(Bolt.environment).toBe(targetEnvironment);
     expect(Bolt.publicKey).toBe(targetPublicKey);
@@ -40,7 +31,7 @@ describe('Test the initialization function', () => {
   /**
    * The user cannot init the SDK more than once
    */
-  test('Check initialization unicity.', () => {
+  test('Check initialization unicity.', async () => {
     const tryInitAgain = () => Bolt.init({ apiKey: '12345' });
     expect(tryInitAgain).toThrow(Error);
   });
@@ -48,7 +39,7 @@ describe('Test the initialization function', () => {
   /**
    * The values passed during init cannot be changed
    */
-  test('Check initialization values imutability.', () => {
+  test('Check initialization values imutability.', async () => {
     const tryRedefineProp1 = () => {
       Bolt.apiKey = '5678';
     };
