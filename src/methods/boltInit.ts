@@ -12,6 +12,7 @@ const init = (
   environment: string = (params || {}).environment || 'sandbox',
   version: string = 'v1',
   apiKey: string = (params || {}).apiKey,
+  publicKey: string = (params || {}).publicKey,
 ): void => {
   /**
    * If the API has already been initialized, stops here.
@@ -25,6 +26,13 @@ const init = (
    */
   if (!apiKey || typeof apiKey !== 'string') {
     throw new Error('Bolt need a valid apiKey to initialize.');
+  }
+
+  /**
+   * Force check the publicKey param
+   */
+  if (!publicKey || typeof publicKey !== 'string') {
+    throw new Error('Bolt need a valid publicKey to initialize.');
   }
 
   return Object.defineProperties(bolt, {
@@ -46,6 +54,10 @@ const init = (
     isInitialized: {
       ...freezedPropertiesParametters,
       value: true,
+    },
+    publicKey: {
+      ...freezedPropertiesParametters,
+      value: publicKey,
     },
     version: {
       ...freezedPropertiesParametters,

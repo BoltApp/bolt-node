@@ -7,7 +7,7 @@ import bolt from 'src/index';
  * @param orderData
  * @param callback
  */
-const sign = async (callback: () => object) => {
+const sign = async (callback?: () => object) => {
   /**
    * Call options
    */

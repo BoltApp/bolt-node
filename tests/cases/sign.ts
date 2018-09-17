@@ -10,7 +10,7 @@ const Bolt = global.Bolt;
  *  }
  */
 describe('Test the signing process.', async () => {
-  test('Synchronous order creation', async () => {
+  test('Synchronous request sign', async () => {
     expect.assertions(5);
     const response = await Bolt.sign();
 

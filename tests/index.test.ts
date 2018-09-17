@@ -16,5 +16,7 @@ global.Secrets = global.IS_DEV
  * Run the test suites
  */
 import './cases/initialization.ts';
-import './cases/createOrder.ts';
-import './cases/sign.ts';
+import './cases/fullOrderProcess.ts';
+//import './cases/createOrder.ts';
+//import './cases/sign.ts';
+//import './cases/apiCalls.ts';

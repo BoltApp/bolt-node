@@ -6,7 +6,7 @@
     "^.+\\.ts$": "ts-jest"
   },
   "testRegex": ".test.ts$",
-  "moduleFileExtensions": ["ts", "js"],
+  "moduleFileExtensions": ["ts", "js", "json"],
   "globals": {},
   "verbose": true,
   "moduleDirectories": ["node_modules", "src", "tests"]

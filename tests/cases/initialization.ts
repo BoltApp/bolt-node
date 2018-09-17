@@ -17,8 +17,13 @@ describe('Test the initialization function', () => {
    * Init the SDK once for all tests
    */
   const targetAPIKey: string = global.Secrets.apiKey;
+  const targetPublicKey: string = global.Secrets.publicKey;
   const targetEnvironment: string = global.IS_DEV ? 'sandbox' : 'production';
-  Bolt.init({ apiKey: targetAPIKey, environment: targetEnvironment });
+  Bolt.init({
+    apiKey: targetAPIKey,
+    environment: targetEnvironment,
+    publicKey: targetPublicKey,
+  });
 
   /**
    * Check the values after init
@@ -26,6 +31,7 @@ describe('Test the initialization function', () => {
   test('Check initialization values.', () => {
     expect(Bolt.apiKey).toBe(targetAPIKey);
     expect(Bolt.environment).toBe(targetEnvironment);
+    expect(Bolt.publicKey).toBe(targetPublicKey);
     expect(typeof Bolt.hostname).toStrictEqual('string');
     expect(typeof Bolt.version).toStrictEqual('string');
     expect(Bolt.isInitialized).toStrictEqual(true);

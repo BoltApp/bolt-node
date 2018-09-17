@@ -3,12 +3,18 @@ import https from 'https';
 import http from 'http';
 import crypto from 'crypto';
 
+/**
+ * Calls to the Bolt APIs
+ *
+ * @param {Bolt.IAPICallParams} callParams
+ * @returns {(Promise<object> | void)}
+ */
 const apiCall = (
   callParams: Bolt.IAPICallParams,
   callBack?: (content: object) => void,
-  method = callParams.method || 'GET',
-  path = callParams.path,
-  postData = callParams.postData || JSON.stringify(''),
+  method: string = callParams.method || 'GET',
+  path: string = callParams.path,
+  postData: string = callParams.postData || JSON.stringify(''),
 ): Promise<object> | void => {
   /**
    * Check params
@@ -17,6 +23,20 @@ const apiCall = (
     throw new Error('To make an api call, you need to define a path.');
   }
 
+  /**
+   * Check that the data to post are valid
+   */
+  try {
+    JSON.parse(postData);
+  } catch {
+    throw new Error(
+      'You tried o make an api call with an invalid JSON payload.',
+    );
+  }
+
+  /**
+   * Build the call options
+   */
   const options: http.RequestOptions = {
     hostname: bolt.hostname || '',
     method: method,
@@ -24,6 +44,9 @@ const apiCall = (
     port: 443,
   };
 
+  /**
+   * Add headers and nonce if POST or PUT
+   */
   if (method !== 'GET') {
     options.headers = {
       'Content-Length': postData.length,

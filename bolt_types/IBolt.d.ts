@@ -7,6 +7,7 @@ declare namespace Bolt {
     readonly environment?: 'sandbox' | 'production';
     public readonly init: (params: Bolt.IBoltInitParams) => void;
     readonly isInitialized?: boolean;
+    readonly publicKey?: string;
     readonly version?: string;
   }
 }

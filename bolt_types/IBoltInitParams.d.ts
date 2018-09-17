@@ -3,5 +3,6 @@ declare namespace Bolt {
     readonly apiKey: string;
     readonly version?: string;
     readonly environment: 'sandbox' | 'production';
+    readonly publicKey: string;
   }
 }

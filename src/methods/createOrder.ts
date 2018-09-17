@@ -6,7 +6,7 @@ import apiCall from 'src/utils/apiCall';
  * @param orderData
  * @param callback
  */
-const createOrder = async (orderData: string, callback: () => object) => {
+const createOrder = async (orderData: string, callback?: () => object) => {
   /**
    * Call options
    */

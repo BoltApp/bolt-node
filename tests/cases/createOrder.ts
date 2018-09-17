@@ -6,19 +6,6 @@ describe('Test the order creation', async () => {
     const response = await Bolt.createOrder(sampleOrderData);
     expect(response.statusCode).toStrictEqual(200);
   });
-
-  // test('Promise.', () => {
-  //   expect.assertions(1);
-  //   return expect(Bolt.createOrder(sampleOrderData)).resolves.toEqual('salut');
-  // });
-
-  // test('Asynchronous order creation', done => {
-  //   function callback(response) {
-  //     expect(response.statusCode).toStrictEqual(200);
-  //     done();
-  //   }
-  //   Bolt.createOrder(sampleOrderData, callback);
-  // });
 });
 
 /**

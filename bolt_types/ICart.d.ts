@@ -14,7 +14,7 @@ declare namespace Bolt {
     currency: string;
 
     // Array of discounts applied to the cart
-    discounts: Array<Bolt.IDiscount>;
+    discounts?: Array<Bolt.IDiscount>;
 
     // Array of shopping cart items
     items: Array<Bolt.IItem>;
@@ -23,7 +23,7 @@ declare namespace Bolt {
     billing_address?: Bolt.IClientAdress;
 
     // Array of shipments
-    shipments: Array<{
+    shipments?: Array<{
       // Total weight of the shipment
       total_weight?: number;
       // Weight unit
