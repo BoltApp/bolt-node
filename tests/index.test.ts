@@ -16,39 +16,25 @@ global.Secrets = global.IS_DEV
 /**
  * Init the object and run the test suites
  */
-const localtunnel = require('localtunnel');
-const createTunnel = () =>
-  new Promise(resolve => {
-    localtunnel(7575, (err, tunnel) => {
-      resolve(tunnel);
-    });
-  });
-
-const http = require('http');
-
 beforeAll(async () => {
   /**
    * Init the SDK once for all tests
    */
-  return createTunnel().then(tunnel => {
-    console.log(tunnel);
-    const targetAPIKey: string = global.Secrets.apiKey;
-    const targetPublicKey: string = global.Secrets.publicKey;
-    const targetEnvironment: string = global.IS_DEV ? 'sandbox' : 'production';
-    Bolt.init({
-      apiKey: targetAPIKey,
-      environment: targetEnvironment,
-      hookURL: tunnel.url,
-      publicKey: targetPublicKey,
-    });
-
-    return console.log(Bolt);
+  const targetAPIKey: string = global.Secrets.apiKey;
+  const targetPublicKey: string = global.Secrets.publicKey;
+  const targetEnvironment: string = global.IS_DEV ? 'sandbox' : 'production';
+  Bolt.init({
+    apiKey: targetAPIKey,
+    environment: targetEnvironment,
+    // Manually enter your URL: run `npx lt --port 7575`
+    // TODO: make the init auto
+    hookURL: 'https://tricky-badger-74.localtunnel.me',
+    publicKey: targetPublicKey,
   });
 });
 
 require('./cases/initialization.ts');
-
-//import './cases/fullOrderProcess.ts';
+require('./cases/fullOrderProcess.ts');
 //import './cases/createOrder.ts';
 //import './cases/sign.ts';
 //import './cases/apiCalls.ts';
