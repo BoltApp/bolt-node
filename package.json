@@ -17,9 +17,9 @@
     "build:prod": "webpack --env.NODE_ENV=prod",
     "dev": "webpack --env.NODE_ENV=dev --watch",
     "precommit": "lint-staged",
-    "test:dev": "jest --watchAll --notify",
-    "pp": "lt --help",
-    "test:prod": "jest --config=jest-prod-config.json"
+    "test:dev": "npm run localtunnel",
+    "localServer": "babel-node tests/localServer.ts",
+    "localtunnel": "babel-node tests/startLocalTunnel.ts"
   },
   "husky": {
     "hooks": {
