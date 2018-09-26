@@ -30,7 +30,7 @@ describe('The full order process', async () => {
     });
     const page = await browser.newPage();
 
-    await page.goto('http://localhost:9090');
+    await page.goto(`http://localhost:9090/?orderToken=${order.body.token}`);
 
     const body = (await page.$eval('body', e => e.innerHTML)).trim();
 

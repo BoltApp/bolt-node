@@ -15,7 +15,10 @@ const tunnel = localtunnel(9191, (err, tunnel) => {
       if (req.url === '/favicon.ico') return;
 
       if (req.url === '/tunnel') {
-        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.writeHead(200, {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'X-tunnelURL': tunnel.url,
+        });
         res.write(tunnel.url);
         return res.end();
       }
@@ -25,7 +28,7 @@ const tunnel = localtunnel(9191, (err, tunnel) => {
       const environment = params.get('environment');
       const orderToken = params.get('orderToken');
 
-      if (!environment || !orderToken) {
+      if (!orderToken) {
         res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.write(
           'You must have an orderToken param in your URL query. ie: /?orderToken=xxxx',
@@ -44,8 +47,8 @@ const tunnel = localtunnel(9191, (err, tunnel) => {
  * Close on stops for easier restarts
  */
 const onClose = () => {
-  server.close();
-  tunnel.close();
+  if (!tunnel._closed) tunnel.close();
+  if (server && server.listening) server.close();
 };
 tunnel.on('close', onClose);
 process.on('exit', onClose);

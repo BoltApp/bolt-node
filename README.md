@@ -49,6 +49,15 @@ var verified = boltClient.verifySignature(body, hmac);
 
 ## For SDK developpers
 
+### Expose your local machine to the web
+
+To build and test the SDK and your integrations, your need to expose your local machine to the web. You can use any mean for that, but here is how you do this with ngrok : https://ngrok.com/
+
+- Create an account here : https://dashboard.ngrok.com/user/signup.
+- Download the client here : https://ngrok.com/download ; then unzip and cd with your terminal to the folder containing the executable.
+- Get your token here : https://dashboard.ngrok.com/auth.
+- Login with `./ngrok authtoken your_auth_token`.
+
 ### Get started with the code
 
 Clone the repo, `npm i` and then run two tasks:
