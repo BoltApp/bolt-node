@@ -49,15 +49,6 @@ var verified = boltClient.verifySignature(body, hmac);
 
 ## For SDK developpers
 
-### Expose your local machine to the web
-
-To build and test the SDK and your integrations, your need to expose your local machine to the web. You can use any mean for that, but here is how you do this with ngrok : https://ngrok.com/
-
-- Create an account here : https://dashboard.ngrok.com/user/signup.
-- Download the client here : https://ngrok.com/download ; then unzip and cd with your terminal to the folder containing the executable.
-- Get your token here : https://dashboard.ngrok.com/auth.
-- Login with `./ngrok authtoken your_auth_token`.
-
 ### Get started with the code
 
 Clone the repo, `npm i` and then run two tasks:
@@ -67,9 +58,7 @@ Clone the repo, `npm i` and then run two tasks:
 
 You can `ndb npm run test:dev` to get a better debugger
 
-### Have the test running
-
-To run the tests, you will need a `secrets.js` file at the root of your folder:
+To run the dev mode, you will need a `secrets.js` file at the root of your folder:
 
     /**
     * Credentials to test the application in dev mode
@@ -80,6 +69,24 @@ To run the tests, you will need a `secrets.js` file at the root of your folder:
       apiKey: 'xxx',
       signingSecret:'xxx',
       publicKey:'xxx',
+      ngrokURL: 'xxx',
+      ngrokToken: 'xxx',
     };
 
 Get the value for the credentials in you sandbox Bolt account: https://merchant-sandbox.bolt.com/settings
+
+For your ngrok url and token:
+
+- Create an account here : <https://dashboard.ngrok.com/user/signup>.
+- Get your token here : <https://dashboard.ngrok.com/auth> for the ngrokToken.
+- Get a payed account, go to <https://dashboard.ngrok.com/reserved> and setup a domain name (like `your-bolt-local-test-server.ngrok.io`) for the ngrokURL.
+- Go to your bolt account settings : <https://merchant-sandbox.bolt.com/settings> and paste your full url (like `https://your-bolt-local-test-server.ngrok.io`)
+
+> You can share it with other developpers. Once started, you can inspect the network on <http://127.0.0.1:4040/inspect/http>
+
+### Run in dev
+
+You will need 3 processes :
+
+- Run `npm run ngrok` will launch the tunnel to expose your localhost to the web.
+- Run
