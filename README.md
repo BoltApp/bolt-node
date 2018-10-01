@@ -67,10 +67,10 @@ To run the dev mode, you will need a `secrets.js` file at the root of your folde
     */
     module.exports = {
       apiKey: 'xxx',
-      signingSecret:'xxx',
-      publicKey:'xxx',
-      ngrokURL: 'xxx',
       ngrokToken: 'xxx',
+      ngrokURL: 'xxx',
+      publicKey:'xxx',
+      signingSecret:'xxx',
     };
 
 Get the value for the credentials in you sandbox Bolt account: https://merchant-sandbox.bolt.com/settings
@@ -90,3 +90,9 @@ You will need 3 processes :
 
 - Run `npm run ngrok` will launch the tunnel to expose your localhost to the web.
 - Run
+
+> Card details for dev :
+
+- Card number: 4111 1111 1111 3000
+- Expiration: Any future month/year
+- CVV: Any 3 digits

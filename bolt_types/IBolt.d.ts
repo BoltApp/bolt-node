@@ -9,6 +9,7 @@ declare namespace Bolt {
     public readonly init: (params: Bolt.IBoltInitParams) => void;
     readonly isInitialized?: boolean;
     readonly publicKey?: string;
+    readonly shippingURL?: string;
     readonly version?: string;
   }
 }

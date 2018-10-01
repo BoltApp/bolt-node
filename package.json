@@ -19,7 +19,7 @@
     "localServer": "babel-node tests/localServer.ts",
     "precommit": "lint-staged",
     "ngrok": "./ngrok http 9090 -subdomain=$(babel-node tests/startNgrok.ts)",
-    "test:dev": "jest --watchAll"
+    "test:dev": "jest --detectOpenHandles"
   },
   "husky": {
     "hooks": {
@@ -61,7 +61,10 @@
       "json"
     ],
     "globals": {
-      "IS_DEV": true
+      "IS_DEV": true,
+      "ts-jest": {
+        "diagnostics": false
+      }
     },
     "verbose": true,
     "moduleDirectories": [

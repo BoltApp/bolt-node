@@ -4,6 +4,7 @@ declare namespace Bolt {
     readonly environment: 'sandbox' | 'production';
     readonly hookURL?: string;
     readonly publicKey: string;
+    readonly shippingURL: string;
     readonly version?: string;
   }
 }

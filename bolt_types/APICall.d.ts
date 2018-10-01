@@ -3,6 +3,7 @@ declare namespace Bolt {
     readonly method: 'GET' | 'POST' | 'PUT';
     readonly path: string;
     readonly postData?: string;
+    readonly hmacToVerify?: string;
   }
 
   export interface IAPIResponse {

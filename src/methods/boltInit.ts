@@ -13,6 +13,7 @@ const init = (
   version: string = 'v1',
   apiKey: string = (params || {}).apiKey,
   hookURL: string | null = (params || {}).hookURL || null,
+  shippingURL: string | null = (params || {}).shippingURL || null,
   publicKey: string = (params || {}).publicKey,
 ): void => {
   /**
@@ -63,6 +64,10 @@ const init = (
     publicKey: {
       ...freezedPropertiesParametters,
       value: publicKey,
+    },
+    shippingURL: {
+      ...freezedPropertiesParametters,
+      value: shippingURL,
     },
     version: {
       ...freezedPropertiesParametters,

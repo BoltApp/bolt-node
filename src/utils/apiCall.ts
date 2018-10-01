@@ -15,6 +15,7 @@ const apiCall = (
   method: string = callParams.method || 'GET',
   path: string = callParams.path,
   postData: string = callParams.postData || JSON.stringify(''),
+  hmacToVerify: string | null = callParams.hmacToVerify || null,
 ): Promise<object> | void => {
   /**
    * Check params
@@ -52,6 +53,17 @@ const apiCall = (
       'Content-Length': postData.length,
       'Content-Type': 'application/json',
       'X-Api-Key': bolt.apiKey,
+      'X-Nonce': crypto.randomBytes(7).toString('hex'),
+    };
+  }
+
+  /**
+   * If this is a verify call, add the Hmac in the headers
+   */
+  if (hmacToVerify) {
+    options.headers = {
+      'X-Api-Key': bolt.apiKey,
+      'X-Bolt-Hmac-Sha256': hmacToVerify,
       'X-Nonce': crypto.randomBytes(7).toString('hex'),
     };
   }
