@@ -77,7 +77,7 @@
     "type": "git",
     "url": "git+https://github.com/BoltApp/bolt-node.git"
   },
-  "author": "Bolt <support@bolt.com> (https://bolt.com)",
+  "author": "Bolt (https://www.boltapp.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BoltApp/bolt-node/issues"
