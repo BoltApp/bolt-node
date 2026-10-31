@@ -73,14 +73,14 @@ To run the dev mode, you will need a `secrets.js` file at the root of your folde
       signingSecret:'xxx',
     };
 
-Get the value for the credentials in you sandbox Bolt account: https://merchant-sandbox.bolt.com/settings
+Get the value for the credentials in you sandbox Bolt account: https://merchant-sandbox.boltapp.com/settings
 
 For your ngrok url and token:
 
 - Create an account here : <https://dashboard.ngrok.com/user/signup>.
 - Get your token here : <https://dashboard.ngrok.com/auth> for the ngrokToken.
 - Get a payed account, go to <https://dashboard.ngrok.com/reserved> and setup a domain name (like `your-bolt-local-test-server.ngrok.io`) for the ngrokURL.
-- Go to your bolt account settings : <https://merchant-sandbox.bolt.com/settings> and paste your full url (like `https://your-bolt-local-test-server.ngrok.io`)
+- Go to your bolt account settings : <https://merchant-sandbox.boltapp.com/settings> and paste your full url (like `https://your-bolt-local-test-server.ngrok.io`)
 
 > You can share it with other developpers. Once started, you can inspect the network on <http://127.0.0.1:4040/inspect/http>
 
